@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,8 +22,10 @@ import dev.failsafe.Fallback;
 public class MagentoAutomationTest {
 
 	WebDriver driver = new ChromeDriver();
+	
+	JavascriptExecutor js = (JavascriptExecutor) driver;
 
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
 	Random rand = new Random();
 	SecureRandom secRandom = new SecureRandom();
@@ -36,7 +39,7 @@ public class MagentoAutomationTest {
 	public void mySetup() {
 		driver.manage().window().maximize();
 		driver.get("https://magento.softwaretestingboard.com/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
 	}
 
 	@Test(priority = 1, enabled = true)
@@ -246,9 +249,13 @@ public class MagentoAutomationTest {
 
 				quantity = driver.findElement(locatorQuantity);
 				quantityRandomFilled(quantity);
-
+				
+				
 				addToCartButton = driver.findElement(locatorAddBtn);
-				addToCartButton.click();
+				js.executeScript("arguments[0].click();", addToCartButton);
+				
+//				addToCartButton = driver.findElement(locatorAddBtn);
+//				addToCartButton.click();
 
 			}
 
@@ -266,7 +273,7 @@ public class MagentoAutomationTest {
 	private void assertAddedItemsMessage() {
 
 		WebElement addMessage = driver.findElement(By.cssSelector(".message-success.success.message"));
-
+		
 		boolean actualAdded = addMessage.getText().contains("You added");
 		boolean expectAdded = true;
 
@@ -289,7 +296,7 @@ public class MagentoAutomationTest {
 		String SPECIAL_CHARS = "!@#$%^&*()-_=+<>";
 		String ALL_CHARS = UPPERCASE + LOWERCASE + DIGITS + SPECIAL_CHARS;
 
-		int PASSWORD_LENGTH = 8;
+		int PASSWORD_LENGTH = 7;
 
 		StringBuilder password = new StringBuilder(PASSWORD_LENGTH);
 
@@ -298,7 +305,7 @@ public class MagentoAutomationTest {
 			password.append(ALL_CHARS.charAt(index));
 		}
 
-		return password.toString();
+		return password.toString() + "#"; //to ensure the password is strong :)
 	}
 
 	public void inforamtionAccount(String email, String password, String userName) {
