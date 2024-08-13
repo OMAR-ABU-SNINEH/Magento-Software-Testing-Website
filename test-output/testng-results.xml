@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-12T20:20:16 EET" name="Default suite" finished-at="2024-08-12T20:22:08 EET" duration-ms="112087">
+  <suite started-at="2024-08-13T14:33:04 EET" name="Default suite" finished-at="2024-08-13T14:35:05 EET" duration-ms="121022">
     <groups>
     </groups>
-    <test started-at="2024-08-12T20:20:16 EET" name="Default test" finished-at="2024-08-12T20:22:08 EET" duration-ms="112087">
+    <test started-at="2024-08-13T14:33:04 EET" name="Default test" finished-at="2024-08-13T14:35:05 EET" duration-ms="121022">
       <class name="MagentoTest.MagentoAutomationTest">
-        <test-method is-config="true" signature="mySetup()[pri:0, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-12T20:20:16 EET" name="mySetup" finished-at="2024-08-12T20:20:20 EET" duration-ms="3996" status="PASS">
+        <test-method is-config="true" signature="mySetup()[pri:0, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-13T14:33:04 EET" name="mySetup" finished-at="2024-08-13T14:33:07 EET" duration-ms="3278" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- mySetup -->
-        <test-method signature="createAnAccount()[pri:1, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-12T20:20:20 EET" name="createAnAccount" finished-at="2024-08-12T20:20:28 EET" duration-ms="8417" status="PASS">
+        <test-method signature="createAnAccount()[pri:1, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-13T14:33:07 EET" name="createAnAccount" finished-at="2024-08-13T14:33:15 EET" duration-ms="8015" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createAnAccount -->
-        <test-method signature="logout()[pri:2, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-12T20:20:28 EET" name="logout" finished-at="2024-08-12T20:20:30 EET" duration-ms="1297" status="PASS">
+        <test-method signature="logout()[pri:2, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-13T14:33:15 EET" name="logout" finished-at="2024-08-13T14:33:18 EET" duration-ms="2533" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logout -->
-        <test-method signature="login()[pri:3, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-12T20:20:30 EET" name="login" finished-at="2024-08-12T20:20:35 EET" duration-ms="5432" status="PASS">
+        <test-method signature="login()[pri:3, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-13T14:33:18 EET" name="login" finished-at="2024-08-13T14:33:23 EET" duration-ms="5291" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="addAllWomenItemsCard()[pri:4, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-12T20:20:35 EET" name="addAllWomenItemsCard" finished-at="2024-08-12T20:21:03 EET" duration-ms="28440" status="PASS">
+        <test-method signature="addAllWomenItemsCard()[pri:4, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-13T14:33:23 EET" name="addAllWomenItemsCard" finished-at="2024-08-13T14:33:50 EET" duration-ms="27178" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addAllWomenItemsCard -->
-        <test-method signature="addAllMenItemsCard()[pri:5, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-12T20:21:04 EET" name="addAllMenItemsCard" finished-at="2024-08-12T20:21:37 EET" duration-ms="33696" status="PASS">
+        <test-method signature="addAllMenItemsCard()[pri:5, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-13T14:33:50 EET" name="addAllMenItemsCard" finished-at="2024-08-13T14:34:21 EET" duration-ms="30829" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addAllMenItemsCard -->
-        <test-method signature="addAllGearItemsCard()[pri:6, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-12T20:21:37 EET" name="addAllGearItemsCard" finished-at="2024-08-12T20:22:08 EET" duration-ms="30765" status="PASS">
+        <test-method signature="addAllGearItemsCard()[pri:6, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-13T14:34:21 EET" name="addAllGearItemsCard" finished-at="2024-08-13T14:34:53 EET" duration-ms="32218" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addAllGearItemsCard -->
+        <test-method signature="reviewSomeRandomItem()[pri:7, instance:MagentoTest.MagentoAutomationTest@1c98290c]" started-at="2024-08-13T14:34:53 EET" name="reviewSomeRandomItem" finished-at="2024-08-13T14:35:05 EET" duration-ms="11640" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reviewSomeRandomItem -->
       </class> <!-- MagentoTest.MagentoAutomationTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

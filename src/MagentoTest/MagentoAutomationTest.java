@@ -2,6 +2,7 @@ package MagentoTest;
 
 import java.security.SecureRandom;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -22,7 +23,7 @@ import dev.failsafe.Fallback;
 public class MagentoAutomationTest {
 
 	WebDriver driver = new ChromeDriver();
-	
+
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -153,7 +154,7 @@ public class MagentoAutomationTest {
 
 			addToCartButton.click();
 
-			assertAddedItemsMessage();
+			assertAddedItemsMessage("You added");
 
 			backPage();
 
@@ -161,6 +162,7 @@ public class MagentoAutomationTest {
 			cardItems = driver.findElement(By.className("product-items"));
 			cardItemsList = cardItems.findElements(By.tagName("li"));
 		}
+
 		driver.get("https://magento.softwaretestingboard.com/");
 	}
 
@@ -200,7 +202,7 @@ public class MagentoAutomationTest {
 
 			addToCartButton.click();
 
-			assertAddedItemsMessage();
+			assertAddedItemsMessage("You added");
 
 			backPage();
 
@@ -249,17 +251,13 @@ public class MagentoAutomationTest {
 
 				quantity = driver.findElement(locatorQuantity);
 				quantityRandomFilled(quantity);
-				
-				
+
 				addToCartButton = driver.findElement(locatorAddBtn);
 				js.executeScript("arguments[0].click();", addToCartButton);
-				
-//				addToCartButton = driver.findElement(locatorAddBtn);
-//				addToCartButton.click();
 
 			}
 
-			assertAddedItemsMessage();
+			assertAddedItemsMessage("You added");
 
 			backPage();
 
@@ -270,11 +268,54 @@ public class MagentoAutomationTest {
 		driver.get("https://magento.softwaretestingboard.com/");
 	}
 
-	private void assertAddedItemsMessage() {
+	@Test(priority = 7, enabled = true)
+	public void reviewSomeRandomItem() {
+
+		WebElement menSection = driver.findElement(By.xpath("//span[normalize-space()='Men']"));
+		WebElement womenSection = driver.findElement(By.xpath("//span[normalize-space()='Women']"));
+
+		List<WebElement> sectionList = new ArrayList<WebElement>();
+
+		sectionList.add(womenSection);
+		sectionList.add(menSection);
+
+		int randSectionNum = rand.nextInt(sectionList.size());
+
+		sectionList.get(randSectionNum).click();
+
+		WebElement cardItems = driver.findElement(By.className("product-items"));
+		List<WebElement> cardItemsList = cardItems.findElements(By.tagName("li"));
+
+		int randomCardsNum = rand.nextInt(cardItemsList.size());
+		cardItemsList.get(randomCardsNum).click();
+
+		WebElement reviewLink = driver.findElement(By.partialLinkText("Reviews"));
+		reviewLink.click();
+
+		WebElement name = driver.findElement(By.id("nickname_field"));
+		WebElement summary = driver.findElement(By.id("summary_field"));
+		WebElement reviewArea = driver.findElement(By.id("review_field"));
+		WebElement ratingStars = driver.findElement(By.id("Rating_2_label"));
+		WebElement submitReview = driver.findElement(By.xpath("//button[@class='action submit primary']"));
+
+		name.sendKeys("Omar Abu Snineh");
+		summary.sendKeys("Great Itme!");
+		reviewArea.sendKeys("This was a great item and competitively priced");
+
+		js.executeScript("arguments[0].click();", ratingStars);
+
+		submitReview.click();
+
+		assertAddedItemsMessage("You submitted your review for moderation.");
+
+		driver.get("https://magento.softwaretestingboard.com/");
+	}
+
+	private void assertAddedItemsMessage(String Message) {
 
 		WebElement addMessage = driver.findElement(By.cssSelector(".message-success.success.message"));
-		
-		boolean actualAdded = addMessage.getText().contains("You added");
+
+		boolean actualAdded = addMessage.getText().contains(Message);
 		boolean expectAdded = true;
 
 		Assert.assertEquals(actualAdded, expectAdded);
@@ -305,7 +346,7 @@ public class MagentoAutomationTest {
 			password.append(ALL_CHARS.charAt(index));
 		}
 
-		return password.toString() + "#"; //to ensure the password is strong :)
+		return password.toString() + "#"; // to ensure the password is strong :)
 	}
 
 	public void inforamtionAccount(String email, String password, String userName) {

@@ -5,7 +5,7 @@
     <classes>
       <class name="MagentoTest.MagentoAutomationTest">
         <methods>
-          <include name="addAllWomenItemsCard"/>
+          <include name="reviewSomeRandomItem"/>
           <include name="mySetup"/>
         </methods>
       </class> <!-- MagentoTest.MagentoAutomationTest -->
