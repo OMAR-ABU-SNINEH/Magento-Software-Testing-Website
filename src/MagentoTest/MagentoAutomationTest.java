@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -37,7 +38,7 @@ public class MagentoAutomationTest {
 	String logoutDirect = "https://magento.softwaretestingboard.com/customer/account/logout/";/* Sign Out */
 
 	@BeforeTest
-	public void mySetup() {
+	public void mySetUp() {
 		driver.manage().window().maximize();
 		driver.get("https://magento.softwaretestingboard.com/");
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
@@ -319,6 +320,13 @@ public class MagentoAutomationTest {
 		boolean expectAdded = true;
 
 		Assert.assertEquals(actualAdded, expectAdded);
+	}
+
+	@AfterTest
+	public void myFinish() {
+		if (driver != null) {
+			driver.quit();
+		}
 	}
 
 	public void quantityRandomFilled(WebElement quantity) {
