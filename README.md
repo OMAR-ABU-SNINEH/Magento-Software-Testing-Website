@@ -1,3 +1,4 @@
 # Magento-Software-Testing-Website
 
-![Magento_Selenium_to_Linkedin_Final](https://github.com/user-attachments/assets/fa2986dd-565e-4b11-a63d-1c41685dfc6a)
+![Magento to GIF (1)](https://github.com/user-attachments/assets/6290f91f-2dda-4429-a255-40f0e05a894d)
+
