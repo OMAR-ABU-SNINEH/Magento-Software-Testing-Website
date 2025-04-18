@@ -1,4 +1,4 @@
 # Magento-Software-Testing-Website
 
-![Magento to GIF (1)](https://github.com/user-attachments/assets/6290f91f-2dda-4429-a255-40f0e05a894d)
+![Magento to Github - Made with Clipchamp](https://github.com/user-attachments/assets/1c09d338-2e3f-4e53-83c9-d68a9d8f00fb)
 
